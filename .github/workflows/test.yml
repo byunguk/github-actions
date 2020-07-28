@@ -15,17 +15,17 @@ jobs:
       - name: Print slug/short variables
         run: |
           echo "Slug variables"
-          echo " - ${{ env.GITHUB_REF }}"    
-          echo " - ${{ env.GITHUB_HEAD_REF }}"
-          echo " - ${{ env.GITHUB_BASE_REF }}"
-          echo " - ${{ env.GITHUB_REPOSITORY }}"
+          echo " - ${{ GITHUB_REF }}"    
+          echo " - ${{ GITHUB_HEAD_REF }}"
+          echo " - ${{ GITHUB_BASE_REF }}"
+          echo " - ${{ GITHUB_REPOSITORY }}"
           // output e.g. : master feat-new-feature v1.0.0 product-1.0.0-rc.2 new-awesome-product
           echo "Slug URL variables"
-          echo " - ${{ env.GITHUB_REF_URL }}"
-          echo " - ${{ env.GITHUB_HEAD_REF_URL }}"
-          echo " - ${{ env.GITHUB_BASE_REF_URL }}"
-          echo " - ${{ env.GITHUB_REPOSITORY_URL }}"
+          echo " - ${{ GITHUB_REF_URL }}"
+          echo " - ${{ GITHUB_HEAD_REF_URL }}"
+          echo " - ${{ GITHUB_BASE_REF_URL }}"
+          echo " - ${{ GITHUB_REPOSITORY_URL }}"
           // output e.g. : master feat-new-feature v1-0-0 product-1-0-0-rc-2 new-awesome-product
           echo "Short SHA variables"
-          echo " - ${{ env.GITHUB_SHA_SHORT }}"
+          echo " - ${{ GITHUB_SHA_SHORT }}"
           // output e.g. : ffac537e
