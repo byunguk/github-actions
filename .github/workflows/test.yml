@@ -16,8 +16,8 @@ jobs:
         run: |
           echo "Slug variables"
           echo " - ${{ github.ref }}"    
-          echo " - ${GITHUB_HEAD_REF}"
-          echo " - ${GITHUB_BASE_REF}"
+          echo " - ${{ github.head_ref }}"
+          echo " - ${{ github.base_ref }}"
           echo " - ${GITHUB_REPOSITORY}"
           // output e.g. : master feat-new-feature v1.0.0 product-1.0.0-rc.2 new-awesome-product
           echo "Slug URL variables"
