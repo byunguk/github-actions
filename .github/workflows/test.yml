@@ -1,13 +1,21 @@
 name: Move Jira Ticket
 
-on: [pull_request_review]
-
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${{ github.head_ref }})"
+        id: extract_branch
+
       - name: Print slug/short variables
         run: |
           echo "Slug variables"
