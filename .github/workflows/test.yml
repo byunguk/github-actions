@@ -18,7 +18,7 @@ jobs:
           echo " - ${{ github.ref }}"    
           echo " - ${{ github.head_ref }}"
           echo " - ${{ github.base_ref }}"
-          echo " - ${GITHUB_REPOSITORY}"
+          echo " - $(echo ${GITHUB_REF#refs/heads/})
           // output e.g. : master feat-new-feature v1.0.0 product-1.0.0-rc.2 new-awesome-product
           echo "Slug URL variables"
           echo " - ${GITHUB_REF_URL}"
