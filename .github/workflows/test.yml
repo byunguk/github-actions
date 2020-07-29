@@ -49,4 +49,5 @@ jobs:
 
       - uses: jfrog/setup-jfrog-cli@v1
       - run: |
-          jfrog rt c export leiainc --url=${{ secrets.JFROG_URL }}
+          jfrog rt c --url=${{ secrets.JFROG_URL }} --user=${{ secrets.JFROG_USER }} -password=${{ secrets.JFROG_PASSWORD }}
+          jfrog rt c show
