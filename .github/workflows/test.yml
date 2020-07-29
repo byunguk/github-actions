@@ -50,3 +50,4 @@ jobs:
       - uses: jfrog/setup-jfrog-cli@v1
       - run: |
           jfrog rt c --url=${{ secrets.JFROG_URL }} --apikey=${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
+          jfrog rt ping
