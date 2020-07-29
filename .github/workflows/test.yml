@@ -50,4 +50,4 @@ jobs:
       - uses: jfrog/setup-jfrog-cli@v1
       - run: |
           jfrog --version
-          jfrog rt c
+          jfrog rt c --url=${{ secrets.JFROG_URL }} --user=${{ secrets.JFROG_USER }} -password=${{ secrets.JFROG_PASSWORD }}
