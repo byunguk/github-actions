@@ -37,5 +37,5 @@ jobs:
           echo " event.pull_request.repo - ${{ github.event.pull_request.repo }}"
           echo " event.pull_request.head - ${{ github.event.pull_request.head }}"
           echo " event.pull_request.base - ${{ github.event.pull_request.base }}"
-          echo " event.event.type - ${{ github.event.type }}"
-          echo " event.event.repo - ${{ github.event.repo }}"
+          echo " event.type - ${{ github.event.type }}"
+          echo " event.pull_request.repo - ${{ github.pull_request.repo }}"
