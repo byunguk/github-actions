@@ -38,5 +38,5 @@ jobs:
           echo " event.pull_request.head - ${{ github.event.pull_request.head }}"
           echo " event.pull_request.base - ${{ github.event.pull_request.base }}"
           echo " event.type - ${{ github.event.type }}"
-          echo " event.pull_request.merge - ${{ github.pull_request.merge }}"
+          echo " event.pull_request.merged - ${{ github.pull_request.merged }}"
           echo " event.pull_request.mrege.state - ${{ github.pull_request.merge.state }}"
