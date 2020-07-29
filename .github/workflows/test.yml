@@ -1,8 +1,6 @@
 name: Move Jira Ticket
 
-on:
-  pull_request:
-    types: [closed]
+on: [pull_request]
 
 jobs:
   build:
