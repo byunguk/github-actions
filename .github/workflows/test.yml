@@ -29,6 +29,7 @@ jobs:
           echo " sha - ${{ github.sha }}"
           echo " token - ${{ github.token }}"
           echo " token - ${{ github.token }}"
+          echo " event.status - ${{ github.event.status }}"
           echo " event.state - ${{ github.event.state }}"
           echo " event.dismissed_review - ${{ github.event.dismissed_review }}"
           echo " event.dismissed_review.state - ${{ github.event.dismissed_review.state }}"
