@@ -46,3 +46,6 @@ jobs:
       - name: Pull request merged
         if: github.event.pull_request.merged == true
         run: echo merged
+
+      - uses: jfrog/setup-jfrog-cli@v1
+      - run: jfrog --version
