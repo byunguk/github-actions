@@ -1,9 +1,8 @@
 name: Move Jira Ticket
 
 on:
-  push:
-    branches:
-      - master
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   build:
