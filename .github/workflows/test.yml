@@ -40,7 +40,7 @@ jobs:
           echo " event.pull_request.mrege.state - ${{ github.pull_request.merge.state }}"
 
       - name: Pull request merged
-        if: github.event.action == "opened"
+        if: github.event.action == opened
         run: echo opened
 
       - name: Pull request merged
