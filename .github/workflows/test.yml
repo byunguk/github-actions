@@ -40,3 +40,7 @@ jobs:
           echo " event.type - ${{ github.event.type }}"
           echo " event.pull_request.merged - ${{ github.pull_request.merged }}"
           echo " event.pull_request.mrege.state - ${{ github.pull_request.merge.state }}"
+
+      - name: Pull request merged
+        if: github.event.pull_request.merged == true
+        run: echo merged
