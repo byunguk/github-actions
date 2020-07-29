@@ -48,8 +48,5 @@ jobs:
         run: echo merged
 
       - uses: jfrog/setup-jfrog-cli@v1
-        env:
-          JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
       - run: |
-          jfrog rt c --url=${{ secrets.JFROG_URL }}
-          jfrog rt ping
+          jfrog rt c export leiainc --url=${{ secrets.JFROG_URL }}
