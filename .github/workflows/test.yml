@@ -58,6 +58,12 @@ jobs:
       #     path: 'version.properties'
       #     property: 'versionName'
       #     value: '1.0.0'
+      - name: Read value from Properties-file
+        id: read_property
+        uses: christian-draeger/read-properties@1.0.1
+        with:
+        path: 'version.properties'
+        property: 'the.key.of.the.property'
 
       - name: Generate build number
         uses: einaregilsson/build-number@v2 
