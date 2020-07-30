@@ -60,7 +60,7 @@ jobs:
       #     value: '1.0.0'
       - name: Read value from Properties-file
         id: read_property
-        run: echo "::set-output name=version_name::$(echo ${$(head -n 1 version.properties)/"versionName="/''}"
+        run: echo "::set-output name=version_name::$(echo ${$(head -n 1 version.properties)/"versionName="//"/"}"
         #echo ${$(head -n 1 version.properties)/"versionName="/""}
         #run: echo ${$(head -n 1 version.properties)/"versionName="/""}
 
