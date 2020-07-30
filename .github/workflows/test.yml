@@ -60,14 +60,12 @@ jobs:
       #     value: '1.0.0'
       - name: Read value from Properties-file
         id: read_property
-        uses: christian-draeger/read-properties@1.0.1
-        with:
-          path: 'version.properties'
-          property: 'versionName'
+        run: echo "::set-output name=version_name::$(echo ${$(head -n 1 version.properties)/"versionName="/""})"
+        #run: echo ${$(head -n 1 version.properties)/"versionName="/""}
 
-      - name: Generate build number
-        uses: einaregilsson/build-number@v2 
-        with:
-          token: ${{secrets.github_token}}        
-      - name: Print new build number
-        run: echo "Build number is $GITHUB_RUN_NUMBER"
+      # - name: Generate build number
+      #   uses: einaregilsson/build-number@v2 
+      #   with:
+      #     token: ${{secrets.github_token}}        
+      # - name: Print new build number
+      #   run: echo "Build number is $GITHUB_RUN_NUMBER"
