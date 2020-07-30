@@ -51,3 +51,10 @@ jobs:
       - run: |
           jfrog rt c --url=${{ secrets.JFROG_URL }} --apikey=${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
           jfrog rt ping
+
+      - name: Write value to Properties-file
+        uses: christian-draeger/write-properties@1.0.1
+        with:
+          path: 'version.properties'
+          property: 'versionName'
+          value: '1.0.0'
