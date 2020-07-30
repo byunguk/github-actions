@@ -1,8 +1,6 @@
 name: Move Jira Ticket
 
-on:
-  pull_request:
-    types: [closed]
+on: [pull_request]
 
 jobs:
   build:
@@ -42,5 +40,28 @@ jobs:
           echo " event.pull_request.mrege.state - ${{ github.pull_request.merge.state }}"
 
       - name: Pull request merged
+        if: github.event.action == 'opened'
+        run: echo opened
+
+      - name: Pull request merged
         if: github.event.pull_request.merged == true
         run: echo merged
+
+      - uses: jfrog/setup-jfrog-cli@v1
+      - run: |
+          jfrog rt c --url=${{ secrets.JFROG_URL }} --apikey=${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
+          jfrog rt ping
+
+      # - name: Write value to Properties-file
+      #   uses: christian-draeger/write-properties@1.0.1
+      #   with:
+      #     path: 'version.properties'
+      #     property: 'versionName'
+      #     value: '1.0.0'
+
+      - name: Generate build number
+        uses: einaregilsson/build-number@v2 
+        with:
+          token: ${{secrets.github_token}}        
+      - name: Print new build number
+        run: echo "Build number is $GITHUB_RUN_NUMBER"
