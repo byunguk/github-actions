@@ -62,8 +62,8 @@ jobs:
         id: read_property
         uses: christian-draeger/read-properties@1.0.1
         with:
-        path: 'version.properties'
-        property: 'the.key.of.the.property'
+        path: '../../version.properties'
+        property: 'versionName'
 
       - name: Generate build number
         uses: einaregilsson/build-number@v2 
