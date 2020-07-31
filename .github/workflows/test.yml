@@ -61,6 +61,11 @@ jobs:
       #     path: 'version.properties'
       #     property: 'versionName'
       #     value: '1.0.0'
+      - name: LL
+        run: |
+          firstString="I love Suzi and Marry"
+          secondString="Sara"
+          echo "${firstString/Suzi/$secondString}"    
 
       - name: LS
         run: |
