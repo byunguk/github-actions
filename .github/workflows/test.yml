@@ -5,6 +5,9 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - uses: actions/checkout@v2
@@ -58,10 +61,42 @@ jobs:
       #     path: 'version.properties'
       #     property: 'versionName'
       #     value: '1.0.0'
+      - name: LL
+        run: |
+          firstString="I love Suzi and Marry"
+          secondString="Sara"
+          echo "${firstString/Suzi/$secondString}"    
 
-      - name: Generate build number
-        uses: einaregilsson/build-number@v2 
-        with:
-          token: ${{secrets.github_token}}        
-      - name: Print new build number
-        run: echo "Build number is $GITHUB_RUN_NUMBER"
+      - name: LS
+        run: |
+          versionName="versionName=0.1.0"
+          echo ${versionName/versionName=/''}
+          echo ${versionName=0.1.0/"versionName="/''}
+
+      - name: LA
+        run: |
+          versionName=$(echo $(head -n 1 version.properties))
+          #echo "${$(head -n 1 version.properties)/versionName=/''}"
+          echo ${versionName/versionName=/''}
+
+
+      - name: Read value from properties file
+        id: read_property
+        run: |
+          versionName=$(echo $(head -n 1 version.properties))
+          echo "##[set-output name=version_name;]$(echo ${versionName/versionName=/``})"
+        #echo ${$(head -n 1 version.properties)/"versionName="/""}
+        #run: echo ${$(head -n 1 version.properties)/"versionName="/""}
+      
+      - name: Print versionName
+        run: echo ${{ steps.read_property.outputs.version_name }}
+      # - name: Generate build number
+      #   uses: einaregilsson/build-number@v2 
+      #   with:
+      #     token: ${{secrets.github_token}}        
+      # - name: Print new build number
+      #   run: echo "Build number is $GITHUB_RUN_NUMBER"
+
+      - name: Pull Request Merged
+        if: github.event.pull_request.merged == true
+        run: echo "PR merged"
