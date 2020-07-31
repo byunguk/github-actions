@@ -82,12 +82,14 @@ jobs:
 
       - name: Read value from properties file
         id: read_property
-        run: echo "##[set-env name=VERSION_NAME;]$(echo ${$(head -n 1 version.properties)/versionName=/``})"
+        run: |
+          versionName=$(echo $(head -n 1 version.properties))
+          echo "##[set-output name=version_name;]$(echo ${versionName/versionName=/``})"
         #echo ${$(head -n 1 version.properties)/"versionName="/""}
         #run: echo ${$(head -n 1 version.properties)/"versionName="/""}
       
       - name: Print versionName
-        run: echo $VERSION_NAME
+        run: echo ${{ steps.read_property.outputs.version_name }}
       # - name: Generate build number
       #   uses: einaregilsson/build-number@v2 
       #   with:
