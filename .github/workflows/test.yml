@@ -1,6 +1,6 @@
 name: Move Jira Ticket
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -69,7 +69,7 @@ jobs:
 
       - name: LS
         run: |
-          echo ${versionName=0.1.0//versionName=/''}
+          echo ${'versionName=0.1.0'/'versionName='/''}
           echo ${versionName=0.1.0/"versionName="/''}
 
       - name: LA
