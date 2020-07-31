@@ -61,7 +61,6 @@ jobs:
 
       - name: LS
         run: |
-          echo "test"
           echo "${versionName=0.1.0/versionName=/''}"
           echo "${versionName=0.1.0/versionName=/''}"
 
