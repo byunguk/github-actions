@@ -58,11 +58,13 @@ jobs:
       #     path: 'version.properties'
       #     property: 'versionName'
       #     value: '1.0.0'
-      - name: LA
-        run: echo ${${head -n 1 version.properties}/versionName=/''}
 
       - name: LS
         run: echo ${versionName=0.1.0/versionName=/''}
+
+      - name: LA
+        run: echo ${${{ head -n 1 version.properties }}/versionName=/''}
+
 
       - name: Read value from properties file
         id: read_property
