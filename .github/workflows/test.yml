@@ -60,12 +60,12 @@ jobs:
       #     value: '1.0.0'
       - name: Read value from properties file
         id: read_property
-        run: echo "##[set-output name=version_name;]$(echo ${$(head -n 1 version.properties)/versionName=/``})"
+        run: echo "##[set-output name=VERSION_NAME;]$(echo ${$(head -n 1 version.properties)/versionName=/``})"
         #echo ${$(head -n 1 version.properties)/"versionName="/""}
         #run: echo ${$(head -n 1 version.properties)/"versionName="/""}
       
       - name: Print versionName
-        run: echo ${{ steps.read_property.outputs.version_name }}
+        run: echo $VERSION_NAME
       # - name: Generate build number
       #   uses: einaregilsson/build-number@v2 
       #   with:
