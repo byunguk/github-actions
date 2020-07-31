@@ -69,7 +69,7 @@ jobs:
 
       - name: LS
         run: |
-          versionName = "versionName=0.1.0"
+          versionName="versionName=0.1.0"
           echo ${versionName/versionName=/''}
           echo ${versionName=0.1.0/"versionName="/''}
 
