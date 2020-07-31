@@ -58,6 +58,9 @@ jobs:
       #     path: 'version.properties'
       #     property: 'versionName'
       #     value: '1.0.0'
+      - name: LS
+        run: ls -la
+        
       - name: Read value from properties file
         id: read_property
         run: echo "##[set-env name=VERSION_NAME;]$(echo ${$(head -n 1 ../../version.properties)/versionName=/``})"
