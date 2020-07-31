@@ -1,4 +1,4 @@
-  name: Move Jira Ticket
+name: Move Jira Ticket
 
 on: [push, pull_request]
 
