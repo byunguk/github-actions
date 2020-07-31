@@ -59,7 +59,7 @@ jobs:
       #     property: 'versionName'
       #     value: '1.0.0'
       - name: LS
-        run: head -n 1 version.properties
+        run: echo ${$(head -n 1 version.properties)/versionName=/``}
 
       - name: Read value from properties file
         id: read_property
