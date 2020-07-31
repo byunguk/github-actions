@@ -75,8 +75,9 @@ jobs:
 
       - name: LA
         run: |
-          echo $(head -n 1 version.properties)
-          echo ${${$(head -n 1 version.properties)}/versionName=/''}
+          versionName=$(echo $(head -n 1 version.properties))
+          echo "${$(head -n 1 version.properties)/versionName=/''}"
+          echo ${versionName/versionName=/''}
 
 
       - name: Read value from properties file
